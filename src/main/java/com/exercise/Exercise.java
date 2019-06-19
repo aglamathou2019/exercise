@@ -30,7 +30,7 @@ public class Exercise {
         }
     }
 
-    public static void pingHost(String k, String v){
+    private static void pingHost(String k, String v){
         log.debug("host:" + v.split(":")[0]);
         if (pingHost(v.split(":")[0], Integer.parseInt(v.split(":")[1]),10)){
             log.info("OK {}", k);
@@ -40,7 +40,7 @@ public class Exercise {
         }
     }
 
-    public static boolean pingHost(String host, int port, int timeout) {
+    private static boolean pingHost(String host, int port, int timeout) {
         log.debug("Host to ping:" + host);
         try (Socket socket = new Socket()) {
             socket.connect(new InetSocketAddress(host, port), timeout);
